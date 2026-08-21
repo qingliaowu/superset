@@ -20,7 +20,7 @@ import contextlib
 import logging
 import re
 from datetime import datetime
-from typing import Any, Callable, TYPE_CHECKING
+from typing import Any, Callable, ClassVar, TYPE_CHECKING
 
 from flask import current_app as app, make_response, request, Response
 from flask_appbuilder.api import expose, protect
@@ -77,7 +77,7 @@ logger = logging.getLogger(__name__)
 
 
 class ChartDataRestApi(ChartRestApi):
-    include_route_methods = {"get_data", "data", "data_from_cache"}
+    include_route_methods: ClassVar[set[str]] = {"get_data", "data", "data_from_cache"}
 
     @expose("/<int:pk>/data/", methods=("GET",))
     @protect()
