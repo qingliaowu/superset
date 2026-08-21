@@ -242,8 +242,7 @@ class DashboardJSONMetadataSchema(Schema):
         This field was removed in https://github.com/apache/superset/pull/23228, but might
         be present in old exports.
         """  # noqa: E501
-        if "show_native_filters" in data:
-            del data["show_native_filters"]
+        data.pop("show_native_filters", None)
 
         return data
 
