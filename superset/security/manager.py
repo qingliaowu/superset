@@ -4071,7 +4071,7 @@ class SupersetSecurityManager(  # pylint: disable=too-many-public-methods
                     )
                 )
 
-        if database and table or query:
+        if (database and table) or query:
             if query:
                 # Type narrow: only SQL Lab Query objects have .database attribute
                 if hasattr(query, "database"):
